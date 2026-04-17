@@ -13,9 +13,9 @@
     src: "{{ playbook_dir }}/../Dockerfile"
     dest: /opt/simple-app/
 
-- name: Copy dcoker-compose.yml
+- name: Copy docker-compose.yml
   copy:
-    src: "{{ playbook_dir }}/../apdcoker-compose.ymlp"
+    src: "{{ playbook_dir }}/../docker-compose.yml"
     dest: /opt/simple-app/
 
 - name: Start application
