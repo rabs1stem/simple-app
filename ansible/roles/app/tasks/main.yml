@@ -1,0 +1,14 @@
+- name: Create project directory
+  file:
+    path: /opt/simple-app
+    state: directory
+
+- name: Copy project files
+  copy:
+    src: "{{ playbook_dir }}/../"
+    dest: /opt/simple-app/
+
+- name: Start application
+  shell: docker compose up -d 
+  args:
+    chdir: /opt/simple-app 
