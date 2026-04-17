@@ -1,5 +1,7 @@
-- name: Install docker
+- name: Install docker and compose plugin
   apt:
-    name: docker.io 
+    name:
+      - docker.io
+      - docker-compose-plugin
     state: present
     update_cache: true
