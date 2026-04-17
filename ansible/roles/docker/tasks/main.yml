@@ -2,6 +2,6 @@
   apt:
     name:
       - docker.io
-      - docker-compose
+      - docker compose
     state: present
     update_cache: true

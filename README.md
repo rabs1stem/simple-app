@@ -139,6 +139,18 @@ ansible-playbook -i ansible/inventory.ini ansible/playbook.yml
 
 ---
 
+## Makefile
+
+```bash
+make run     # локальный запуск приложения
+make test    # запустить тесты
+make up      # поднять контейнеры
+make down    # остановить контейнеры
+make deploy  # ansible deploy
+```
+
+---
+
 ## Структура проекта
 
 ```text
