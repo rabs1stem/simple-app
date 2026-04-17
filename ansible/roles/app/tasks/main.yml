@@ -19,6 +19,6 @@
     dest: /opt/simple-app/
 
 - name: Start application
-  shell: docker compose up -d 
+  shell: docker-compose up -d 
   args:
     chdir: /opt/simple-app 
