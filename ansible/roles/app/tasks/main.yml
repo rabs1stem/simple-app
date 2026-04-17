@@ -3,9 +3,19 @@
     path: /opt/simple-app
     state: directory
 
-- name: Copy project files
+- name: Copy app
   copy:
-    src: "{{ playbook_dir }}/../"
+    src: "{{ playbook_dir }}/../app"
+    dest: /opt/simple-app/
+
+- name: Copy Dockerfile
+  copy:
+    src: "{{ playbook_dir }}/../Dockerfile"
+    dest: /opt/simple-app/
+
+- name: Copy dcoker-compose.yml
+  copy:
+    src: "{{ playbook_dir }}/../apdcoker-compose.ymlp"
     dest: /opt/simple-app/
 
 - name: Start application
