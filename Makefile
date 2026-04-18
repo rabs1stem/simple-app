@@ -8,7 +8,7 @@ up:
 	docker-compose up --build -d
 
 down:
-	docker-compose down
+	docker-compose down -v
 
 deploy:
 	ansible-playbook -i ansible/inventory.ini ansible/playbook.yml
