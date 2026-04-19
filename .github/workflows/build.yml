@@ -18,5 +18,31 @@ jobs:
               run: |
                 pip install -r app/requirements.txt
                 pip install pytest
+
+            - name: shellcheck install
+              run: sudo apt install -y shellcheck
+            - name: shellcheck
+              run: shellcheck scripts/*.sh
             - name: pytest
               run: pytest 
+    docker:
+        needs: tests
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+            - name: Build
+              run: docker compose build
+            - name: run containers
+              run: docker compose up -d
+            - name: wait
+              run: sleep 10
+            - name: check containers
+              run: docker ps
+            - name: health
+              run: curl -f http://localhost:5000/health || exit 1
+            - name: fail logs
+              if: failure() 
+              run: docker compose logs
+            - name: stop containers
+              if: always()  
+              run: docker compose down -v
